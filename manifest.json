@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "Voca Dictionary",
+  "version": "0.2.0",
+  "description": "영단어를 드래그하거나 더블클릭하면 네이버 사전으로 즉시 뜻을 보여주고, 단어장에 저장합니다.",
+
+  "permissions": ["declarativeNetRequest", "identity", "storage"],
+  "host_permissions": [
+    "https://en.dict.naver.com/*",
+    "https://*.supabase.co/*"
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["config.js", "parser.js", "popup.js", "content.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "naver_referer",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  },
+
+  "web_accessible_resources": [
+    {
+      "matches": ["<all_urls>"],
+      "resources": ["popup.css"]
+    }
+  ]
+}
