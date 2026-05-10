@@ -4,7 +4,9 @@
 
 VocaNova 프로젝트의 일부로, 같은 Supabase 백엔드를 공유하는 [iOS 앱(`VocaNova`)](../VocaNova) / [macOS 앱(`VocaNovaApp`)](../VocaNovaApp) 과 단어장 데이터를 실시간으로 주고받습니다.
 
-<!-- 스크린샷 영역 -->
+## 실행화면
+
+<!-- 스크린샷 추가 -->
 
 ## 주요 기능
 
