@@ -3,6 +3,12 @@ importScripts("config.js", "supabase.js", "auth.js");
 const NAVER_ENDPOINT =
   "https://en.dict.naver.com/api3/enko/search?m=mobile&lang=ko&query=";
 
+chrome.runtime.onInstalled.addListener((details) => {
+  if (details.reason === "install") {
+    chrome.tabs.create({ url: "https://www.vocanova.online/" });
+  }
+});
+
 chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
   const action = message?.action;
 
